@@ -1,0 +1,6 @@
+{
+  "/prueba/v1/asignaturas": {
+    "target": "http://localhost:10090",
+    "secure": false
+  }
+}
