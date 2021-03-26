@@ -1,0 +1,55 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+
+       <h2>Ver Asignaturas Por Profesor</h2>
+    </div>
+
+    <br />
+
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+
+            <div class="form-row align-items-center">
+                <div class="col-auto my-1">
+
+                    <label for="profesoresSelect" class="mr-sm-2">Profesor</label>
+                        <select class="custom-select mr-sm-2" formControlName="profSeleccionado" id="profesoresSelect">
+                            <option value="">Seleccione el Profesor</option>
+                            <option *ngFor="let profesor of profesoresList  | async" [value]="profesor.id">
+                                {{profesor.nombre}}
+                            </option>
+                        </select>
+
+                </div>
+            </div>
+              
+            <div class="col-auto my-1">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </div>
+
+            <br>
+
+            <div class="table-responsive" *ngIf="asignaturasList">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Asignatura</th>
+                            <th>Estudiantes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let asignatura of asignaturasList | async">
+                            <td>{{asignatura.nombre}}</td>
+                        <td>
+                                <li *ngFor="let estudiante of asignatura.estudiantes">
+                                    <span >{{estudiante.nombre}}</span>
+                                </li>
+                            </td>                  
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+          </form>
+
+
+</div>
