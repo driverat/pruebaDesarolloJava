@@ -42,18 +42,6 @@ export class AsignaturaComponent implements OnInit {
 
 		this.asignaturasList = this.asignaturaService.getAsignaturasProfesor(this.profSeleccionado?.value);
 
-		// this.asignaturaService.getAsignaturasProfesor(this.profSeleccionado?.value).subscribe(data => {
-        //     this.asignaturasList = data;
-        // });
-
-		this.asignaturasList.subscribe({
-			next(asginatura) {
-			  console.log('Current Position: ', asginatura)}});
-
-		//console.table(this.asignaturasList);
-
-			//this.asignaturasList = this.asignaturaService.getAsignaturasProfesor(this.profSeleccionado?.value)).subscribe((estudiantes: any[] ) => {
-			//	this.estudiantes =estudiantes;})
 	 }
 
 
